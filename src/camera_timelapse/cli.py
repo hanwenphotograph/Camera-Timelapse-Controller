@@ -5,6 +5,8 @@ import shutil
 import sys
 from pathlib import Path
 
+from camera_timelapse import __version__
+from camera_timelapse.build_info import write_build_info
 from camera_timelapse.capture.common import next_group_number
 from camera_timelapse.core.schedule import (
     has_reached_scheduled_time,
@@ -29,6 +31,12 @@ from camera_timelapse.gphoto import GPhotoError
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Capture +1 EV, 0 EV, and -1 EV photos through gPhoto2."
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
+        help="Show the application version and exit.",
     )
     parser.add_argument(
         "output_dir",
@@ -110,8 +118,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if arguments == ["--build-info"]:
+        write_build_info()
+        return 0
     parser = build_parser()
-    args = parser.parse_args(argv)
+    args = parser.parse_args(arguments)
     validate_args(parser, args)
     args.round_count = maybe_prompt_round_count(args.round_count, args.end_at)
 

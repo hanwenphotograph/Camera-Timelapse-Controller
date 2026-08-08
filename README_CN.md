@@ -47,6 +47,13 @@ python3 -m pip install -e .
 
 如果系统 pip 较旧，建议在虚拟环境中先升级 `pip`、`setuptools` 和 `wheel` 后再安装。
 
+查看当前安装版本和机器可读构建信息：
+
+```bash
+camera-timelapse --version
+camera-timelapse --build-info
+```
+
 拍摄两组包围曝光，并让每组开始时间之间间隔 5 秒：
 
 ```bash
@@ -91,7 +98,7 @@ camera-timelapse . --dry-run --interval 5 --round 2
 旧的脚本入口仍然可用：
 
 ```bash
-python3 /path/to/Camera-Timelapse-Controller/bracket_capture.py . --interval 5 --round 2
+python3 /path/to/Camera-Timelapse-Controller/src/bracket_capture.py . --interval 5 --round 2
 ```
 
 如果没有提供目录，程序会在运行时询问。

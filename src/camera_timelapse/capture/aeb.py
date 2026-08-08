@@ -15,7 +15,7 @@ from camera_timelapse.capture.common import (
 )
 from camera_timelapse.core.constants import AEB_SHOT_COUNT
 from camera_timelapse.core.log import current_timestamp, log
-from camera_timelapse.gphoto import GPhotoError, GPhotoShellSession, run_gphoto
+from camera_timelapse.gphoto import GPhotoError, GPhotoShellSession
 from camera_timelapse.parsing import format_camera_files, parse_camera_files
 
 

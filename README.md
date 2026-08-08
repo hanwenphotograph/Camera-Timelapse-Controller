@@ -1,6 +1,6 @@
 # Camera Timelapse Controller
 
-English | [简体中文](README.zh-CN.md)
+English | [简体中文](README_CN.md)
 
 Camera Timelapse Controller is a small Python command-line tool for running
 bracketed timelapse capture through `gphoto2`.
@@ -54,6 +54,13 @@ python3 -m pip install -e .
 If your system pip is old, run this inside a virtual environment after upgrading
 `pip`, `setuptools`, and `wheel`.
 
+Inspect the installed version and machine-readable build metadata:
+
+```bash
+camera-timelapse --version
+camera-timelapse --build-info
+```
+
 Capture two bracket rounds with a 5-second interval between round starts:
 
 ```bash
@@ -98,7 +105,7 @@ camera-timelapse . --dry-run --interval 5 --round 2
 The legacy script entry point still works:
 
 ```bash
-python3 /path/to/Camera-Timelapse-Controller/bracket_capture.py . --interval 5 --round 2
+python3 /path/to/Camera-Timelapse-Controller/src/bracket_capture.py . --interval 5 --round 2
 ```
 
 If you omit the directory, the program asks for it at runtime.
